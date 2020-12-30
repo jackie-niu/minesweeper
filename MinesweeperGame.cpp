@@ -191,22 +191,22 @@ int findBeginnerMines(string actualBoard[BEGINNER_DIMENSION][BEGINNER_DIMENSION]
 	
 	else
 	{
-		if (actualBoard[x - 1][y - 1] == MINE)
+		if (x != 0 && y != 0 && actualBoard[x - 1][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (actualBoard[x][y - 1] == MINE)
+		if (y != 0 && actualBoard[x][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (x != BEGINNER_DIMENSION - 1 && actualBoard[x + 1][y - 1] == MINE)
+		if (y != 0 && x != BEGINNER_DIMENSION - 1 && actualBoard[x + 1][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (actualBoard[x - 1][y] == MINE)
+		if (x != 0 && actualBoard[x - 1][y] == MINE)
 		{
 			mines++;
 		}
@@ -216,7 +216,7 @@ int findBeginnerMines(string actualBoard[BEGINNER_DIMENSION][BEGINNER_DIMENSION]
 			mines++;
 		}
 		
-		if (y != BEGINNER_DIMENSION - 1 && actualBoard[x - 1][y + 1] == MINE)
+		if (x != 0 && y != BEGINNER_DIMENSION - 1 && actualBoard[x - 1][y + 1] == MINE)
 		{
 			mines++;
 		}
@@ -246,22 +246,22 @@ int findIntermediateMines(string actualBoard[INTERMEDIATE_DIMENSION][INTERMEDIAT
 	
 	else
 	{
-		if (actualBoard[x - 1][y - 1] == MINE)
+		if (x != 0 && y != 0 && actualBoard[x - 1][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (actualBoard[x][y - 1] == MINE)
+		if (y != 0 && actualBoard[x][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (x != INTERMEDIATE_DIMENSION - 1 && actualBoard[x + 1][y - 1] == MINE)
+		if (y != 0 && x != INTERMEDIATE_DIMENSION - 1 && actualBoard[x + 1][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (actualBoard[x - 1][y] == MINE)
+		if (x != 0 && actualBoard[x - 1][y] == MINE)
 		{
 			mines++;
 		}
@@ -271,7 +271,7 @@ int findIntermediateMines(string actualBoard[INTERMEDIATE_DIMENSION][INTERMEDIAT
 			mines++;
 		}
 		
-		if (y != INTERMEDIATE_DIMENSION - 1 && actualBoard[x - 1][y + 1] == MINE)
+		if (x != 0 && y != INTERMEDIATE_DIMENSION - 1 && actualBoard[x - 1][y + 1] == MINE)
 		{
 			mines++;
 		}
@@ -301,22 +301,22 @@ int findAdvancedMines(string actualBoard[ADVANCED_DIMENSION][ADVANCED_DIMENSION]
 	
 	else
 	{
-		if (actualBoard[x - 1][y - 1] == MINE)
+		if (x != 0 && y != 0 && actualBoard[x - 1][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (actualBoard[x][y - 1] == MINE)
+		if (y != 0 && actualBoard[x][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (x != ADVANCED_DIMENSION - 1 && actualBoard[x + 1][y - 1] == MINE)
+		if (y != 0 && x != ADVANCED_DIMENSION - 1 && actualBoard[x + 1][y - 1] == MINE)
 		{
 			mines++;
 		}
 		
-		if (actualBoard[x - 1][y] == MINE)
+		if (x != 0 && actualBoard[x - 1][y] == MINE)
 		{
 			mines++;
 		}
@@ -326,7 +326,7 @@ int findAdvancedMines(string actualBoard[ADVANCED_DIMENSION][ADVANCED_DIMENSION]
 			mines++;
 		}
 		
-		if (y != ADVANCED_DIMENSION - 1 && actualBoard[x - 1][y + 1] == MINE)
+		if (x != 0 && y != ADVANCED_DIMENSION - 1 && actualBoard[x - 1][y + 1] == MINE)
 		{
 			mines++;
 		}
