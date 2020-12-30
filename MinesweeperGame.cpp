@@ -345,6 +345,438 @@ int findAdvancedMines(string actualBoard[ADVANCED_DIMENSION][ADVANCED_DIMENSION]
 	return mines;
 }
 
+void clearBeginnerZeros(string actualBoard[BEGINNER_DIMENSION][BEGINNER_DIMENSION], string playerBoard[BEGINNER_DIMENSION][BEGINNER_DIMENSION], int x, int y)
+{
+	int xOriginal = x;
+	int yOriginal = y;
+	if (findBeginnerMines(actualBoard, x, y) == 0)
+	{
+		// top left
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && y != 0 && findBeginnerMines(actualBoard, x - 1, y - 1) == 0)
+			{
+				x = x - 1;
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// up
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (y != 0 && findBeginnerMines(actualBoard, x, y - 1) == 0)
+			{
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// top right
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (x != BEGINNER_DIMENSION - 1 && y != 0 && findBeginnerMines(actualBoard, x + 1, y - 1) == 0)
+			{
+				x = x + 1;
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// left
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && findBeginnerMines(actualBoard, x - 1, y) == 0)
+			{
+				x = x - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// right
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (x != BEGINNER_DIMENSION - 1 && findBeginnerMines(actualBoard, x + 1, y) == 0)
+			{
+				x = x + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// bottom left
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && y != BEGINNER_DIMENSION - 1 && findBeginnerMines(actualBoard, x - 1, y + 1) == 0)
+			{
+				x = x - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// down
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (y != BEGINNER_DIMENSION - 1 && findBeginnerMines(actualBoard, x, y + 1) == 0)
+			{
+				y = y + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// bottom right
+		while (findBeginnerMines(actualBoard, x, y) == 0)
+		{
+			if (y != BEGINNER_DIMENSION - 1 && x != BEGINNER_DIMENSION - 1 && findBeginnerMines(actualBoard, x + 1, y + 1) == 0)
+			{
+				x = x + 1;
+				y = y + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+}
+
+void clearIntermediateZeros(string actualBoard[INTERMEDIATE_DIMENSION][INTERMEDIATE_DIMENSION], string playerBoard[INTERMEDIATE_DIMENSION][INTERMEDIATE_DIMENSION], int x, int y)
+{
+	int xOriginal = x;
+	int yOriginal = y;
+	if (findIntermediateMines(actualBoard, x, y) == 0)
+	{
+		// top left
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && y != 0 && findIntermediateMines(actualBoard, x - 1, y - 1) == 0)
+			{
+				x = x - 1;
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// up
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (y != 0 && findIntermediateMines(actualBoard, x, y - 1) == 0)
+			{
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// top right
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (x != INTERMEDIATE_DIMENSION - 1 && y != 0 && findIntermediateMines(actualBoard, x + 1, y - 1) == 0)
+			{
+				x = x + 1;
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// left
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && findIntermediateMines(actualBoard, x - 1, y) == 0)
+			{
+				x = x - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// right
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (x != INTERMEDIATE_DIMENSION - 1 && findIntermediateMines(actualBoard, x + 1, y) == 0)
+			{
+				x = x + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// bottom left
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && y != INTERMEDIATE_DIMENSION - 1 && findIntermediateMines(actualBoard, x - 1, y + 1) == 0)
+			{
+				x = x - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// down
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (y != INTERMEDIATE_DIMENSION - 1 && findIntermediateMines(actualBoard, x, y + 1) == 0)
+			{
+				y = y + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// bottom right
+		while (findIntermediateMines(actualBoard, x, y) == 0)
+		{
+			if (y != INTERMEDIATE_DIMENSION - 1 && x != INTERMEDIATE_DIMENSION - 1 && findIntermediateMines(actualBoard, x + 1, y + 1) == 0)
+			{
+				x = x + 1;
+				y = y + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+}
+
+void clearAdvancedZeros(string actualBoard[ADVANCED_DIMENSION][ADVANCED_DIMENSION], string playerBoard[ADVANCED_DIMENSION][ADVANCED_DIMENSION], int x, int y)
+{
+	int xOriginal = x;
+	int yOriginal = y;
+	if (findAdvancedMines(actualBoard, x, y) == 0)
+	{
+		// top left
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && y != 0 && findAdvancedMines(actualBoard, x - 1, y - 1) == 0)
+			{
+				x = x - 1;
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// up
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (y != 0 && findAdvancedMines(actualBoard, x, y - 1) == 0)
+			{
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// top right
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (x != ADVANCED_DIMENSION - 1 && y != 0 && findAdvancedMines(actualBoard, x + 1, y - 1) == 0)
+			{
+				x = x + 1;
+				y = y - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// left
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && findAdvancedMines(actualBoard, x - 1, y) == 0)
+			{
+				x = x - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// right
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (x != ADVANCED_DIMENSION - 1 && findAdvancedMines(actualBoard, x + 1, y) == 0)
+			{
+				x = x + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// bottom left
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (x != 0 && y != ADVANCED_DIMENSION - 1 && findAdvancedMines(actualBoard, x - 1, y + 1) == 0)
+			{
+				x = x - 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// down
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (y != ADVANCED_DIMENSION - 1 && findAdvancedMines(actualBoard, x, y + 1) == 0)
+			{
+				y = y + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		x = xOriginal;
+		y = yOriginal;
+		
+		// bottom right
+		while (findAdvancedMines(actualBoard, x, y) == 0)
+		{
+			if (y != ADVANCED_DIMENSION - 1 && x != ADVANCED_DIMENSION - 1 && findAdvancedMines(actualBoard, x + 1, y + 1) == 0)
+			{
+				x = x + 1;
+				y = y + 1;
+				playerBoard[x][y] = "0";
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+}
+
 int main() 
 {
 	int difficulty = 0;
@@ -382,8 +814,9 @@ int main()
 		}
 		
 		displayBeginnerBoard(playerBoard);
-		cout << "Setting mines..." << endl;
+		cout << "Setting mines..." << endl << endl;
 		createBeginnerMines(actualBoard);
+		cout << "DONE!" << endl << endl;
 		
 		while (lost == false && found < 54)
 		{
@@ -407,6 +840,7 @@ int main()
 			
 			
 			numMines = findBeginnerMines(actualBoard, x, y);
+			clearBeginnerZeros(actualBoard, playerBoard, x, y);
 			
 			if (numMines == -1)
 			{
@@ -449,8 +883,9 @@ int main()
 		}
 		
 		displayIntermediateBoard(playerBoard);
-		cout << "Setting mines..." << endl;
+		cout << "Setting mines..." << endl << endl;
 		createIntermediateMines(actualBoard);
+		cout << "DONE!" << endl << endl;
 		
 		while (lost == false && found < 54)
 		{
@@ -474,6 +909,7 @@ int main()
 			
 			
 			numMines = findIntermediateMines(actualBoard, x, y);
+			clearIntermediateZeros(actualBoard, playerBoard, x, y);
 			
 			if (numMines == -1)
 			{
@@ -516,8 +952,9 @@ int main()
 		}
 		
 		displayAdvancedBoard(playerBoard);
-		cout << "Setting mines..." << endl;
+		cout << "Setting mines..." << endl << endl;
 		createAdvancedMines(actualBoard);
+		cout << "DONE!" << endl << endl;
 		
 		while (lost == false && found < 54)
 		{
@@ -541,6 +978,7 @@ int main()
 			
 			
 			numMines = findAdvancedMines(actualBoard, x, y);
+			clearAdvancedZeros(actualBoard, playerBoard, x, y);
 			
 			if (numMines == -1)
 			{
